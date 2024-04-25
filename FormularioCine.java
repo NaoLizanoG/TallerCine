@@ -39,7 +39,10 @@ public class FormularioCine {
                 }else {
                 String pelicula = cboPelicula.getSelectedItem().toString();
                 cine.encolar(pelicula,cantidad);
-                txtEntradas.setText(cine.listarAsistente());}
+                txtEntradas.setText(cine.listarAsistente());
+               String peli = cboPelicula.getSelectedItem().toString();
+               JOptionPane.showMessageDialog(null,"Boletos disponibles para esta pelicula: "+boletosDisponibles(peli));
+                }
             }
         });
         cboComprar.addActionListener(new ActionListener() {
