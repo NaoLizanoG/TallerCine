@@ -20,10 +20,13 @@ public class FormularioCine {
     public FormularioCine() {
         try {
         String a="",b="";
+            int c=0;
         do {
             b= showInputDialog("Ingrese su número de cédula real");
             a = showInputDialog("Ingrese su nombre real");
-        }while(b.length()<10);
+            String primerosDosCaracteres = b.substring(0, 2);
+            c=Integer.parseInt(primerosDosCaracteres);
+        }while(b.length()<10 );
             ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("Taller1ProgramacionIII.dat"));
             o.writeObject(a+b);
         }catch (Exception ex) {
