@@ -37,24 +37,28 @@ public class FormularioCine {
                     JOptionPane.showMessageDialog(null,"Puede comprar un máximo de 3 entradas");
                     return;
                 }else {
-                String pelicula = cboPelicula.getSelectedItem().toString();
-                cine.encolar(pelicula,cantidad);
-                txtEntradas.setText(cine.listarAsistente());
-               String peli = cboPelicula.getSelectedItem().toString();
-               JOptionPane.showMessageDialog(null,"Boletos disponibles para esta pelicula: "+boletosDisponibles(peli));
-                }
-            }
-        });
-        cboComprar.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
+                    String pelicula = cboPelicula.getSelectedItem().toString();
+                    if (cantidad>boletosDisponibles(pelicula)){
+                        JOptionPane.showMessageDialog(null,"No hay esa cantidad de boletos disponibles");
+                    }else {
+                        String peli = cboPelicula.getSelectedItem().toString();
+                        cine.encolar(pelicula, cantidad);
+                        txtEntradas.append("Compras:\n");
+                        txtEntradas.append("Película: " + peli + "\n");
+                        txtEntradas.append("Cantidad de entradas: " + cantidad + "\n");
+                        txtEntradas.append("--------------------\n");
 
+
+                        JOptionPane.showMessageDialog(null, "Boletos disponibles para esta pelicula: " + boletosDisponibles(peli));
+                    }}
             }
         });
+
         btnPelicula1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String pelicula1="XMEN";
+
                 JOptionPane.showMessageDialog(null,"Boletos disponibles: "+boletosDisponibles(pelicula1));
             }
         });
